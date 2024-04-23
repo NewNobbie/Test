@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Form</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -33,43 +33,56 @@
           <input
             type="text"
             class="form-control"
-            id="name"
-            th:field="*{name}"
-            placeholder="Nombre Coder"
-            th:value="${coder.name}"
+            id="titulo"
+            th:field="*{titulo}"
+            placeholder="Title Task"
+            th:value="${tarea.titulo}"
           />
-          <label for="name">Nombre coder</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="number"
-            min="0"
-            max="150"
-            th:field="*{age}"
-            class="form-control"
-            id="age"
-            th:value="${coder.age}"
-            placeholder="Edad Coder"
-          />
-          <label for="age">Edad coder</label>
+          <label for="titulo">Title Task</label>
         </div>
 
         <div class="form-floating mb-3">
           <input
             type="text"
             minlength="0"
-            th:field="*{clan}"
+            th:field="*{descripcion}"
             class="form-control"
-            th:value="${coder.clan}"
-            id="clan"
-            placeholder="Clan Coder"
+            th:value="${tarea.descripcion}"
+            id="descripcion"
+            placeholder="Description Task"
           />
-          <label for="clan">Clan coder</label>
+          <label for="descripcion">Description Task</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="date"
+            minlength="0"
+            th:field="*{Date}"
+            class="form-control"
+            th:value="${tarea.fechaCreacion}"
+            id="fechaCreacion"
+            placeholder="Date Task"
+          />
+          <label for="fechaCreacion">Date Creation</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select
+              th:field="*{estado}"
+              class="form-select"
+              id="estado"
+              th:value="${coder.estado}">
+              <option value="pendiente" th:selected="${coder.estado == 'pendiente'}">Not started</option>
+              <option value="completada" th:selected="${coder.estado == 'completada'}">Completed</option>
+              <option value="cancelada" th:selected="${coder.estado == 'cancelada'}">Canceled</option>
+          </select>
+          <label for="status">Status Task</label>
         </div>
 
         <div class="d-flex gap-3">
-          <button type="submit" class="btn btn-primary">Enviar</button>
-          <a href="/" class="btn btn-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Send</button>
+          <a href="/" class="btn btn-secondary">Cancel</a>
         </div>
       </form>
     </div>
